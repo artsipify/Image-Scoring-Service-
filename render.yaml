@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: image-scoring-service
-    env: python
-    branch: main
-    plan: starter
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    name: clip-image-compare
+    runtime: docker
+    plan: starter  # or 'free' for testing
+    envVars:
+      - key: BATCH_SIZE
+        value: "8"
