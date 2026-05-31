@@ -262,3 +262,8 @@ def score_images(payload: ImageScoreRequest):
         })
 
     return {"results": results}
+
+# Add this route to fix the Render 404 shutdown
+@app.get("/")
+def health_check():
+    return {"status": "healthy"}
